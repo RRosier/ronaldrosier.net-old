@@ -1,0 +1,79 @@
+﻿@model Rosier.Blog.Service.ViewModel.CaptchaRequest
+
+    <script type="text/javascript">
+        var submitbutton = $('#submitButton').prop('disabled', 'disabled').addClass('disabled');
+        var error = $('#error').hide();
+
+        function CreateCaptcha() {
+            Recaptcha.create('@Model.PublicKey', 'captcha',
+                    {
+                        theme: "red",
+                        callback: Recaptcha.focus_response_field
+                    }
+             );
+         }
+
+         $.ajax({
+             url: 'http://www.google.com/recaptcha/api/js/recaptcha_ajax.js',
+             dataType: 'script',
+             success: function (result) {
+                 $('#loader').hide();
+                 CreateCaptcha();
+                 submitbutton.removeProp('disabled').removeClass('disabled');
+             },
+             error: function (xmlhttprequest, status, error) {
+                 $('#captcha').html('Cannot create captcha');
+             }
+         });
+
+    </script>
+    
+   
+
+    @using (Html.BeginForm("ValidateCaptcha","Blog", FormMethod.Post, new { id="captchaform" }))
+    { 
+        <fieldset>
+            <p>To prevent robots of submitting, please enter the words below.</p>
+            <div id="captcha"></div>
+
+            @Html.HiddenFor(model => model.Challenge)<br />
+            @Html.HiddenFor(model => model.Response)
+
+            <p id="error">You miss-spelled the words. Please try again.</p>
+            <p><input id="submitButton" type="submit" value="Check Captcha" class="button" /></p>
+
+        </fieldset>
+    }
+
+    <script type="text/javascript">
+        $('#captchaform').submit(function (event) {
+            event.preventDefault();
+            var captchaform = $(this);
+
+            $('#Challenge').val(Recaptcha.get_challenge());
+            $('#Response').val(Recaptcha.get_response());
+
+            $('#loader').show();
+            $.ajax({
+                url: captchaform.attr('action'),
+                type: 'POST',
+                data: captchaform.serialize(),
+                success: function (data) {
+                    $('#loader').hide();
+                    if (!data.Success) {
+                        error.show();
+                        CreateCaptcha();
+                    }
+                    else {
+                        error.hide();
+                        captchaDialog.dialog('close');
+                        form.submit();
+                    }
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    $('#loader').hide();
+                    alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                }
+            });
+        });
+    </script>

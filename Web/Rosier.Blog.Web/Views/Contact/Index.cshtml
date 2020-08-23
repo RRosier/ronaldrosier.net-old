@@ -1,0 +1,111 @@
+﻿@model Rosier.Blog.Service.ViewModel.ContactViewModel
+
+@{
+    ViewBag.Title = "Ronald Rosier.NET - Contact me";
+}
+
+<h2>Contact</h2>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.ValidationSummary(false)
+
+        <table class="layout">
+            <tbody>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Name)</td>
+                    <td>@Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name, "*")</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Email)</td>
+                    <td>@Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email, "*")</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Subject)</td>
+                    <td>@Html.EditorFor(model => model.Subject)
+            @Html.ValidationMessageFor(model => model.Subject, "*")</td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td colspan="2">@Html.EditorFor(model => model.Content)
+            @Html.ValidationMessageFor(model => model.Content, "*")</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <input id="sendForm" type="submit" value="Send" class="button" />
+        </p>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    var captchaDialog;
+    var form = $('form');
+
+    $(document).ready(function (e) {
+
+        captchaDialog = $('#captchadialog').dialog({
+            autoOpen: false,
+            title: 'Enter Captcha',
+            modal: true,
+            dialogClass: "popup",
+            resizable: false,
+            width: '350',
+            open: function (event, ui) {
+                $.ajax({
+                    url: '@Url.Action("CreateCaptcha","Blog")',
+                    dataType: "script", // when this is set to 'html', IE does not execute scripts in the view
+                    success: function (result) {
+                        $('#captchadialog').empty().append(result);
+                    },
+                    error: function (error) {
+                        $('#captchadialog').empty().append(error.responseText);
+                    }
+                })
+            }
+        });
+
+        $('#sendForm').live('click', function (e) {
+            e.preventDefault();
+            if ($('form').valid()) {
+                $('form').find('.validation-summary-errors').hide();
+                captchaDialog.dialog('open');
+            }
+            return false;
+        });
+
+        $('form').submit(function (event) {
+            event.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function (data) {
+                    if (data.Success) {
+                        form[0].reset();
+                        alert('The message was send successfuly!');
+                    }
+                    else {
+                        alert('The message could not be delivered. Please try again!');
+                    }
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                }
+            });
+        });
+
+    });
+
+</script>
+
+    <div id="captchadialog"></div>

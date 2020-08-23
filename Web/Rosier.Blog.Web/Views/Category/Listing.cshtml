@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Rosier.Blog.Service.ViewModel.BlogItemViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var blogItem in Model) { 
+    @Html.Partial("_BlogEntry", blogItem);
+}

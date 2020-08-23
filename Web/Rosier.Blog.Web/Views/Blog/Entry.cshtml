@@ -1,0 +1,67 @@
+﻿@model Rosier.Blog.Service.ViewModel.BlogItemViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.DisplayCommentLink = true;
+    ViewBag.NummerOfComments = Model.NrComments;
+}
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript"></script>
+
+<script id="commentTemplate" type="text/x-jquery-tmpl">
+    {{if IsBlogOwner }}
+        <div class="comment blogowner" style="display:none;">
+    {{else}}
+        <div class="comment" style="display:none;">
+    {{/if}}
+        <div class="info">
+                {{if ShowWebSiteLink}}
+                    <div class="name"><a href="http://${Website}">${DisplayName}</a></div>
+                {{else}}
+                    <div class="name">${DisplayName}</div>
+                {{/if}}
+
+            <img src="http://www.gravatar.com/avatar/${EmailHash}?r=PG&s=50&d=identicon" alt="gravatar" />
+            <div class="date">${$item.getLocalDate()} <br />&#64; ${$item.getLocalTime()}</div>
+        </div>        
+        <div class="content">
+           ${Content}
+        </div>
+    </div>
+</script>
+
+@Html.Partial("_BlogEntry", Model)
+
+<h3>Comments (<span class="commentsNr">@Model.NrComments</span>)</h3>
+<a name="#comments"></a>
+
+<div id="commentsSection">
+
+    <div id="commentsClosedlabel" class="comment blogowner">Sorry, due to immense comment spam on my site, comments are completely close for everyone until I find a way to fight them.</div>
+
+@*@if (!Model.Comments.Any() && Model.AllowAddComments)
+{ 
+    <div id="nocommentslabel">No comments yet available. Be the first to comment.</div>
+}
+else
+{
+    foreach (var c in Model.Comments)
+    {
+        @Html.Partial("_Comment", c);
+    }
+}
+
+</div>
+@if (Model.AllowAddComments)
+{
+    <a name="#addcomment"></a>
+    @Html.Partial("_AddComment",new Rosier.Blog.Service.ViewModel.CommentEditViewModel(Model.ID, HttpContext.Current.Request.RawUrl))
+}
+else
+{
+    <div id="commentsClosedlabel" class="comment blogowner">Comments are closed for this post</div>
+}*@

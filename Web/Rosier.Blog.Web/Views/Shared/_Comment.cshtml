@@ -1,0 +1,30 @@
+﻿@model Rosier.Blog.Service.ViewModel.CommentDisplayViewModel
+
+
+@if (Model.IsBlogOwner) 
+{ 
+    @:<div class="comment blogowner">
+}
+else
+{
+    @:<div class="comment">
+}
+    <div class="info">
+            @if (!string.IsNullOrEmpty(Model.Website))
+            { 
+                <div class="name"><a href="http://@Model.Website">@Model.DisplayName</a></div>
+            }
+            else
+            { 
+                <div class="name">@Model.DisplayName</div>
+            }
+        <img src="http://www.gravatar.com/avatar/@Model.EmailHash?r=PG&s=50&d=identicon" alt="gravatar" />
+
+        <div class="date"><script type="text/javascript">         document.write(new Date('@Model.UtcTimeString').toLocaleDateString());</script><br /> &#64; <script type="text/javascript">                                                                                                                           document.write(new Date('@Model.UtcTimeString').toLocaleTimeString());</script></div>
+    </div>
+    
+    <div class="content">
+        @Html.Raw(Model.Content)
+    </div>
+</div>
+

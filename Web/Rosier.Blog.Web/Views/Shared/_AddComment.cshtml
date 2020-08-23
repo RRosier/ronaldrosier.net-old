@@ -1,0 +1,151 @@
+﻿@model Rosier.Blog.Service.ViewModel.CommentEditViewModel
+
+<div class="addCommentSection">
+    @using (Html.BeginForm("AddComment", "Blog", FormMethod.Post, new { id="commentsform" }))
+    {
+        <fieldset>
+            <legend>Add a new comment</legend>
+            
+            @Html.ValidationSummary(false)    
+
+            <table class="layout">
+                <tbody>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.DisplayName)</td>
+                        <td>@Html.EditorFor(model => model.DisplayName)
+                @Html.ValidationMessageFor(model => model.DisplayName, "*")</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Website)</td>
+                        <td>@Html.EditorFor(model => model.Website)
+                @Html.ValidationMessageFor(model => model.Website, "*")</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Email)</td>
+                        <td>@Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "*")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <i>We only store the MD5 hash of the email for retrieval of your <a href="http://www.gravatar.com">Gravatar</a>!</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            Currently, it is not possible to enter html tags. We are working on this option for the future.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">@Html.EditorFor(model => model.Content)
+                @Html.ValidationMessageFor(model => model.Content, "*")</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            @Html.HiddenFor(model => model.EntryID)
+            @Html.HiddenFor(Model => Model.Permalink)
+
+            <p>
+                <i>To protect this site against spam comments, we will send your comment to <a href="http://www.akismet.com">Akismet</a> for verification!</i><br/>
+                <input id="addcomment" type="submit" value="Save Comment" class="button" />
+            </p>
+        </fieldset>
+    }
+
+    <div id="captchadialog">
+        <div class="ajaxLoader"><img id="loader" src="@Url.Content("~/Content/Images/ajax-loader.gif")" alt="ajax loader" /></div>
+        <div id="content"></div>
+    </div>
+
+</div>
+
+    <script type="text/javascript">
+        var captchaDialog;
+        var form = $('#commentsform');
+
+        $(document).ready(function (e) {
+            captchaDialog = $('#captchadialog').dialog({
+                autoOpen: false,
+                title: 'Enter Captcha',
+                modal: true,
+                dialogClass: "popup",
+                resizable: false,
+                width: '350',
+                open: function (event, ui) {
+                    $.ajax({
+                        url: '@Url.Action("CreateCaptcha","Blog")',
+                        dataType: "script", // when this is set to 'html', IE does not execute scripts in the view
+                        success: function (result) {
+                            $('#captchadialog #content').empty().append(result);
+                        },
+                        error: function (error) {
+                            $('#captchadialog #content').empty().append(error.responseText);
+                        }
+                    })
+                }
+            });
+
+            $('#addcomment').live('click', function (e) {
+                e.preventDefault();
+                if (form.valid()) {
+                    form.find('.validation-summary-errors').hide();
+                    captchaDialog.dialog('open');
+                }
+
+                return false;
+            });
+
+            form.submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'POST',
+                    data: form.serialize(),
+                    success: function (data) {
+                        if (data.Success) { // comment validated and saved successful, append to list
+                            form[0].reset();
+                            var commentTemplate = $('#commentTemplate').template();
+
+                            $('#commentTemplate').tmpl(data, {
+                                getLocalDate: function () {
+                                    return new Date(this.data.UtcTimeString).toLocaleDateString();
+                                },
+                                getLocalTime: function () {
+                                    return new Date(this.data.UtcTimeString).toLocaleTimeString();
+                                }
+                            }).appendTo('#commentsSection').slideDown();
+                            updateCommentsCount();
+                        }
+                        else {  // error in either validating or saving the comment
+                            var message = data.Message;
+                            if (message == 'undefined') message = "An exception occured on the server";
+
+                            var validationSummary = $(".validation-summary-valid");
+                            validationSummary.find("ul").append("<li>" + message + "</li>");
+                            validationSummary.addClass("validation-summary-error validation-summary-errors").removeClass("validation-summary-valid");
+                            // TODO-rro: display error message or inform user
+                        }
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                    }
+                });
+            });
+
+        });
+        
+        function updateCommentsCount(){
+            var nrComments = 0;
+            $('.commentsNr').each(function () {
+                nrComments = parseInt($(this).text());
+                nrComments ++;
+                $(this).text(nrComments);
+            });
+            if(nrComments > 0)
+                $('#nocommentslabel').hide();
+        }
+    </script>

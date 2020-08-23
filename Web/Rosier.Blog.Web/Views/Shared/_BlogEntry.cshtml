@@ -1,0 +1,41 @@
+﻿@model Rosier.Blog.Service.ViewModel.BlogItemViewModel
+
+    <div class="item">
+        @if (Model.ShowTitleLink)
+        { 
+            <h2><a href="@Model.EntryLink">@Model.Title</a></h2>
+        }
+        else { 
+            <h2>@Model.Title</h2>
+        }
+
+        <div class="subline">
+            <span class="timestamp">
+                <script type="text/javascript">
+                    var entrydate = new Date('@Model.UtcTimeString');
+                    document.write(entrydate.toLocaleDateString());
+                    document.write(' at ');
+                    document.write(entrydate.toLocaleTimeString());
+                </script>
+            </span>
+            @if (!ViewBag.DisplayCommentLink)
+            {
+                <span class="commentsCount"> with <a href="@Model.EntryLink#comments"><span class="commentsNr">@Model.NrComments</span> Comments</a></span>
+            }
+            <div class="categoryList">Posted under
+             
+             @foreach (var cat in @Model.Categories)
+             { 
+                 @Html.RouteLink(cat.Name,
+                    new {
+                        controller = "Category",
+                        categoryValue = cat.Value
+                    })
+                 @:|
+             }
+            </div>
+        </div>
+
+        @Html.Raw( Model.Content )
+                                         
+    </div>

@@ -45,6 +45,9 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+# Temporary disable web.config until we remove sensitive data.
+Web.config
+
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
