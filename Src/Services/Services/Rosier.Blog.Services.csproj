@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\Rosier.Blog.Model.csproj" />
+    <ProjectReference Include="..\Services.ViewModel\Rosier.Blog.Services.ViewModel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl" Version="1.1.6" />
+    <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.165" />
+    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.13" />
+    <PackageReference Include="Rosier.Akismet.Net" Version="1.1.0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net451</TargetFramework>
+  </PropertyGroup>
+</Project>
