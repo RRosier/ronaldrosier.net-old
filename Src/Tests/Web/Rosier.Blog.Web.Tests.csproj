@@ -1,12 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.0.0" />
-    <PackageReference Include="Microsoft.AspNet.Razor" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Web\Rosier.Blog.Web.csproj" />

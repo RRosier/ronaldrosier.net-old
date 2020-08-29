@@ -3,6 +3,6 @@
     <ProjectReference Include="..\..\..\Model\Rosier.Blog.Model.csproj" />
   </ItemGroup>
   <PropertyGroup>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 </Project>

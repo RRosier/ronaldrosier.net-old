@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="4.2.0" />

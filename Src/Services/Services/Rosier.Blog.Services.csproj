@@ -7,9 +7,12 @@
     <PackageReference Include="Microsoft.Bcl" Version="1.1.6" />
     <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.165" />
     <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.13" />
+    <PackageReference Include="Microsoft.ServiceModel.Web" Version="1.0.1" />
     <PackageReference Include="Rosier.Akismet.Net" Version="1.1.0" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
   </ItemGroup>
   <PropertyGroup>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 </Project>

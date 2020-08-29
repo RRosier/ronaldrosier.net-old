@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Rosier.Blog.Web.Controllers;
 using Rosier.Blog.Services;
 using Rosier.Blog.Data;
+using System.ServiceModel.Channels;
 
 namespace Rosier.Blog.Web
 {
@@ -20,7 +21,6 @@ namespace Rosier.Blog.Web
         private const string categoryControllerName = "category";
         private const string errorControllerName = "error";
         private const string aboutControllerName = "about";
-
 
         /// <summary>
         /// Creates the specified controller by using the specified request context.

@@ -75,7 +75,7 @@ namespace Rosier.Blog.Web
 
         protected void Application_Start()
         {
-            //Database.SetInitializer<EntityDataContext>(new DatabaseInitialization());
+            // Database.SetInitializer<EntityDataContext>(new DatabaseInitialization());
 
             AreaRegistration.RegisterAllAreas();
 

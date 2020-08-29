@@ -5,6 +5,6 @@
     <ProjectReference Include="..\..\..\Services\Services\Rosier.Blog.Services.csproj" />
   </ItemGroup>
   <PropertyGroup>
-    <TargetFramework>net451</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 </Project>
