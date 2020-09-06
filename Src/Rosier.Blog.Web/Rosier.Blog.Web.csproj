@@ -8,4 +8,8 @@
     <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Rosier.Blog.Services.Abstractions\Rosier.Blog.Services.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>
