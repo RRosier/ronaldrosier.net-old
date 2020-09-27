@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Model\Rosier.Blog.Model.csproj" />
     <ProjectReference Include="..\Rosier.Blog.Services.Abstractions\Rosier.Blog.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\Rosier.Blog.Services\Rosier.Blog.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\Rosier.Blog.Model.csproj" />
     <ProjectReference Include="..\Services.ViewModel\Rosier.Blog.Services.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>

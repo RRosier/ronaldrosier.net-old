@@ -12,27 +12,18 @@ namespace Rosier.Blog.Model
     public class Person
     {
         /// <summary>
-        /// Gets or sets the person id.
+        /// Gets or sets the identifier.
         /// </summary>
-        /// <value>
-        /// The person id.
-        /// </value>
-        public int PersonId { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
-        /// The name to be displayed
+        /// Gets or sets the display name.
         /// </summary>
-        /// <value>
-        /// The display name.
-        /// </value>
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The email address of this person
+        /// Gets or sets the email hash.
         /// </summary>
-        /// <value>
-        /// The email.
-        /// </value>
         public string EmailHash { get; set; }
 
         /// <summary>

@@ -1,0 +1,18 @@
+@model IEnumerable<Rosier.Blog.Model.BlogEntry>
+
+@{
+    ViewData["Title"] = "Blog";
+}
+
+@foreach(var entry in Model)
+{
+<div>
+    <div>
+        <div>@entry.Title</div>
+        <div>@entry.CreationDate @entry.Author</div>
+    </div>
+    <div>
+        @entry.Content
+    </div>
+</div>
+}
