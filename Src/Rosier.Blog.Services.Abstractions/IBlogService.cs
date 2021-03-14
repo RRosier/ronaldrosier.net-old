@@ -1,8 +1,8 @@
-﻿using Rosier.Blog.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Rosier.Blog.Model;
 
 namespace Rosier.Blog.Services
 {
