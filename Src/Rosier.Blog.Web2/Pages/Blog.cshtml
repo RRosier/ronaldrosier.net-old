@@ -1,0 +1,10 @@
+﻿@page
+@model Rosier.Blog.Web.Pages.Blog.IndexModel
+@{
+    ViewData["Title"] = "Blog";
+}
+
+@foreach(var entry in Model.Entries)
+{
+    @await Html.PartialAsync("_Article", entry)
+}

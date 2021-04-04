@@ -3,13 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 
 a.navbar-brand {
   white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+  text-align: left;
+  word-break: break-word;
 }
 
 .btn-primary {
@@ -22,6 +17,123 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.quote {
+  font-style: italic;
+  padding: 0;
+}
+
+.header.navbar {
+  display: block !important;
+}
+.header .container {
+  max-width: 100% !important;
+  align-items: unset;
+}
+
+.header .brand {
+  display: flex;
+  flex-direction: row;
+  
+}
+.header .brand .brand-title {
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start;
+}
+
+.header .brand .brand-title > span {
+  margin-top: -10px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+@media (max-width: 760px) {
+  .header-right {
+    align-items: flex-start;
+  }
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+.nav-link {
+  text-transform: capitalize;
+}
+
+.content {
+  background-color: #fff;
+}
+
+.image-small {
+    width:60px;
+    height: 60px;
+    margin-right: 10px;
+    border: 2px solid #c79974;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 25px;
+  font-family: "Montserrat, sans-serif";
+  padding: 0 !important;
+}
+
+/* Article styles
+-------------------------------------------------- */
+
+.article {
+  padding: 10px;
+  margin-bottom: 50px;;
+  /* border-bottom: 2px solid #0366d6; */
+}
+
+.article .head {
+
+}
+
+.article .head h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.article .head a {
+  color: #000;
+  text-decoration: none;
+}
+.article .head a:hover {
+  color: #bababa  ;
+}
+
+.article .head .article-info {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-items: center;
+  margin-bottom: 20px;
+}
+
+.article .head .article-info > span,
+.article .head .article-info > a {
+  margin: 0 10px 0 0;
+}
+.article .head .article-info > a {
+  padding: 0 2px;
+  color: #bababa;
+}
+.article .head .article-info a.comments {
+  background-color: #dcd3c9;
+  color: #000;
+}
+
+.article .content {
+
 }
 
 /* Sticky footer styles
@@ -58,9 +170,15 @@ html {
   min-height: 100%;
 }
 
+header {
+  background-color: #85a7b9;
+}
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color:  #fbf5f587;
+  font: 17px/1.8 'Open Sans', sans-serif;
 }
 .footer {
   position: absolute;
@@ -68,4 +186,6 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  color: #fff;
+  background-color: #1c1818;
 }
