@@ -1,154 +1,78 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A9F09876-9EB1-4CBD-B591-1BD43FEF97C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3368112B-37D1-436F-8432-96112F174044}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{D340BC7F-2B43-4892-BBA5-C662F448B62F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EDD9C00E-045B-43A4-8C49-6125868A93F3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{84E50E27-6E73-4695-B646-7ACA7149C15A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Web", "Src\Rosier.Blog.Web\Rosier.Blog.Web.csproj", "{BFCE71AD-DEDF-4449-BE2F-86C058C99B37}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E21F26F8-2466-458C-B0A2-92BD1A629A12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Web.Tests", "Src\Tests\Rosier.Blog.Web.Tests\Rosier.Blog.Web.Tests.csproj", "{62F4B9C9-59F0-4536-82C7-F6D5467A4B56}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1B150681-FEC6-4305-A86E-79368E8FD7CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Services", "Src\Rosier.Blog.Services\Rosier.Blog.Services.csproj", "{A4FC5BBB-65FD-4D5C-AED9-216886ED2304}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{9346A975-0A8D-49B9-BB0B-320EFB39BA88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Services.Abstractions", "Src\Rosier.Blog.Services.Abstractions\Rosier.Blog.Services.Abstractions.csproj", "{F51D0312-D31E-4FDD-A15C-15019FB713DD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{01B4AA52-1A9B-4953-9C0D-788C7D563510}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{431042A6-890E-404A-9373-18B489CF28C4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{6DB22EF3-1D10-4798-9A84-D07031F7C9D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Services.Tests", "Src\Tests\Rosier.Blog.Services.Tests\Rosier.Blog.Services.Tests.csproj", "{ED249510-1C73-43EE-A817-744FB0EB7427}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Model", "Model\Rosier.Blog.Model\Rosier.Blog.Model.csproj", "{97FC3956-11F6-4A63-8529-4E03253D77D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Model", "Src\Model\Rosier.Blog.Model.csproj", "{F0E87A49-AC03-4132-A3E0-1E262C9F529F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Web", "Web\Rosier.Blog.Web\Rosier.Blog.Web.csproj", "{3D20AF3F-0945-42E6-864C-1D70BF346806}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Web.Tests", "Tests\Web\Rosier.Blog.Web.Tests\Rosier.Blog.Web.Tests.csproj", "{0BC3E6F7-9491-46D2-8299-46078623F7D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Service.ViewModel", "Service\Rosier.Blog.Service.ViewModel\Rosier.Blog.Service.ViewModel.csproj", "{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Services", "Service\Rosier.Blog.Service\Rosier.Blog.Services.csproj", "{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Service.AtomService.Tests", "Tests\Services\Rosier.Blog.Service.AtomService.Tests\Rosier.Blog.Service.AtomService.Tests.csproj", "{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Data", "Data\Rosier.Blog.Data\Rosier.Blog.Data.csproj", "{9F782261-7F82-4599-A9C6-CB2B49925F80}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Services.BlogService.Tests", "Tests\Services\Rosier.Blog.Services.BlogServiceTests\Rosier.Blog.Services.BlogService.Tests.csproj", "{C41CF6F2-6349-4337-BD43-C5A9F004ACB2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Services.Extentions.Tests", "Tests\Services\Rosier.Blog.Services.Extentions.Tests\Rosier.Blog.Services.Extentions.Tests.csproj", "{DCC48173-3AE4-4358-BA94-8ADDF97FA99B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Model.Tests", "Tests\Model\Rosier.Blog.Model.Tests\Rosier.Blog.Model.Tests.csproj", "{2367B9F8-3513-4DDE-AF9C-27776A17198E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Web", "Src\Rosier.Blog.Web\Rosier.Blog.Web.csproj", "{579DE327-078F-4DE4-89CD-BB53465ACADC}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ronaldrosier.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Data\\Rosier.Blog.Data\\Rosier.Blog.Data.csproj
-		SccProjectTopLevelParentUniqueName1 = Rosier.Blog.sln
-		SccProjectName1 = Data/Rosier.Blog.Data
-		SccLocalPath1 = Data\\Rosier.Blog.Data
-		SccProjectUniqueName2 = Model\\Rosier.Blog.Model\\Rosier.Blog.Model.csproj
-		SccProjectTopLevelParentUniqueName2 = Rosier.Blog.sln
-		SccProjectName2 = Model/Rosier.Blog.Model
-		SccLocalPath2 = Model\\Rosier.Blog.Model
-		SccProjectUniqueName3 = Service\\Rosier.Blog.Service.ViewModel\\Rosier.Blog.Service.ViewModel.csproj
-		SccProjectTopLevelParentUniqueName3 = Rosier.Blog.sln
-		SccProjectName3 = Service/Rosier.Blog.Service.ViewModel
-		SccLocalPath3 = Service\\Rosier.Blog.Service.ViewModel
-		SccProjectUniqueName4 = Service\\Rosier.Blog.Service\\Rosier.Blog.Services.csproj
-		SccProjectTopLevelParentUniqueName4 = Rosier.Blog.sln
-		SccProjectName4 = Service/Rosier.Blog.Service
-		SccLocalPath4 = Service\\Rosier.Blog.Service
-		SccProjectUniqueName5 = Tests\\Model\\Rosier.Blog.Model.Tests\\Rosier.Blog.Model.Tests.csproj
-		SccProjectTopLevelParentUniqueName5 = Rosier.Blog.sln
-		SccProjectName5 = Tests/Model/Rosier.Blog.Model.Tests
-		SccLocalPath5 = Tests\\Model\\Rosier.Blog.Model.Tests
-		SccProjectUniqueName6 = Tests\\Services\\Rosier.Blog.Service.AtomService.Tests\\Rosier.Blog.Service.AtomService.Tests.csproj
-		SccProjectTopLevelParentUniqueName6 = Rosier.Blog.sln
-		SccProjectName6 = Tests/Services/Rosier.Blog.Service.AtomService.Tests
-		SccLocalPath6 = Tests\\Services\\Rosier.Blog.Service.AtomService.Tests
-		SccProjectUniqueName7 = Tests\\Services\\Rosier.Blog.Services.BlogServiceTests\\Rosier.Blog.Services.BlogService.Tests.csproj
-		SccProjectTopLevelParentUniqueName7 = Rosier.Blog.sln
-		SccProjectName7 = Tests/Services/Rosier.Blog.Services.BlogServiceTests
-		SccLocalPath7 = Tests\\Services\\Rosier.Blog.Services.BlogServiceTests
-		SccProjectUniqueName8 = Tests\\Services\\Rosier.Blog.Services.Extentions.Tests\\Rosier.Blog.Services.Extentions.Tests.csproj
-		SccProjectTopLevelParentUniqueName8 = Rosier.Blog.sln
-		SccProjectName8 = Tests/Services/Rosier.Blog.Services.Extentions.Tests
-		SccLocalPath8 = Tests\\Services\\Rosier.Blog.Services.Extentions.Tests
-		SccProjectUniqueName9 = Tests\\Web\\Rosier.Blog.Web.Tests\\Rosier.Blog.Web.Tests.csproj
-		SccProjectTopLevelParentUniqueName9 = Rosier.Blog.sln
-		SccProjectName9 = Tests/Web/Rosier.Blog.Web.Tests
-		SccLocalPath9 = Tests\\Web\\Rosier.Blog.Web.Tests
-		SccProjectUniqueName10 = Web\\Rosier.Blog.Web\\Rosier.Blog.Web.csproj
-		SccProjectTopLevelParentUniqueName10 = Rosier.Blog.sln
-		SccProjectName10 = Web/Rosier.Blog.Web
-		SccLocalPath10 = Web\\Rosier.Blog.Web
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{97FC3956-11F6-4A63-8529-4E03253D77D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97FC3956-11F6-4A63-8529-4E03253D77D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97FC3956-11F6-4A63-8529-4E03253D77D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97FC3956-11F6-4A63-8529-4E03253D77D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D20AF3F-0945-42E6-864C-1D70BF346806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D20AF3F-0945-42E6-864C-1D70BF346806}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D20AF3F-0945-42E6-864C-1D70BF346806}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D20AF3F-0945-42E6-864C-1D70BF346806}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BC3E6F7-9491-46D2-8299-46078623F7D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BC3E6F7-9491-46D2-8299-46078623F7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BC3E6F7-9491-46D2-8299-46078623F7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BC3E6F7-9491-46D2-8299-46078623F7D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F782261-7F82-4599-A9C6-CB2B49925F80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F782261-7F82-4599-A9C6-CB2B49925F80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F782261-7F82-4599-A9C6-CB2B49925F80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F782261-7F82-4599-A9C6-CB2B49925F80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C41CF6F2-6349-4337-BD43-C5A9F004ACB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C41CF6F2-6349-4337-BD43-C5A9F004ACB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C41CF6F2-6349-4337-BD43-C5A9F004ACB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C41CF6F2-6349-4337-BD43-C5A9F004ACB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCC48173-3AE4-4358-BA94-8ADDF97FA99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCC48173-3AE4-4358-BA94-8ADDF97FA99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCC48173-3AE4-4358-BA94-8ADDF97FA99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCC48173-3AE4-4358-BA94-8ADDF97FA99B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2367B9F8-3513-4DDE-AF9C-27776A17198E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2367B9F8-3513-4DDE-AF9C-27776A17198E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2367B9F8-3513-4DDE-AF9C-27776A17198E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2367B9F8-3513-4DDE-AF9C-27776A17198E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFCE71AD-DEDF-4449-BE2F-86C058C99B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFCE71AD-DEDF-4449-BE2F-86C058C99B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFCE71AD-DEDF-4449-BE2F-86C058C99B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFCE71AD-DEDF-4449-BE2F-86C058C99B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F4B9C9-59F0-4536-82C7-F6D5467A4B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F4B9C9-59F0-4536-82C7-F6D5467A4B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F4B9C9-59F0-4536-82C7-F6D5467A4B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F4B9C9-59F0-4536-82C7-F6D5467A4B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FC5BBB-65FD-4D5C-AED9-216886ED2304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FC5BBB-65FD-4D5C-AED9-216886ED2304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FC5BBB-65FD-4D5C-AED9-216886ED2304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FC5BBB-65FD-4D5C-AED9-216886ED2304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51D0312-D31E-4FDD-A15C-15019FB713DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51D0312-D31E-4FDD-A15C-15019FB713DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51D0312-D31E-4FDD-A15C-15019FB713DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51D0312-D31E-4FDD-A15C-15019FB713DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED249510-1C73-43EE-A817-744FB0EB7427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED249510-1C73-43EE-A817-744FB0EB7427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED249510-1C73-43EE-A817-744FB0EB7427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED249510-1C73-43EE-A817-744FB0EB7427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0E87A49-AC03-4132-A3E0-1E262C9F529F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0E87A49-AC03-4132-A3E0-1E262C9F529F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0E87A49-AC03-4132-A3E0-1E262C9F529F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0E87A49-AC03-4132-A3E0-1E262C9F529F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{579DE327-078F-4DE4-89CD-BB53465ACADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{579DE327-078F-4DE4-89CD-BB53465ACADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{579DE327-078F-4DE4-89CD-BB53465ACADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{579DE327-078F-4DE4-89CD-BB53465ACADC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9F782261-7F82-4599-A9C6-CB2B49925F80} = {A9F09876-9EB1-4CBD-B591-1BD43FEF97C7}
-		{97FC3956-11F6-4A63-8529-4E03253D77D1} = {D340BC7F-2B43-4892-BBA5-C662F448B62F}
-		{3D20AF3F-0945-42E6-864C-1D70BF346806} = {84E50E27-6E73-4695-B646-7ACA7149C15A}
-		{1B150681-FEC6-4305-A86E-79368E8FD7CE} = {E21F26F8-2466-458C-B0A2-92BD1A629A12}
-		{01B4AA52-1A9B-4953-9C0D-788C7D563510} = {E21F26F8-2466-458C-B0A2-92BD1A629A12}
-		{6DB22EF3-1D10-4798-9A84-D07031F7C9D2} = {E21F26F8-2466-458C-B0A2-92BD1A629A12}
-		{0BC3E6F7-9491-46D2-8299-46078623F7D1} = {1B150681-FEC6-4305-A86E-79368E8FD7CE}
-		{74E9A46D-75AE-4A4F-ACED-940FFEAA1B41} = {9346A975-0A8D-49B9-BB0B-320EFB39BA88}
-		{FD0A04CA-07CB-4FF5-B3D0-7D7A01E867F9} = {9346A975-0A8D-49B9-BB0B-320EFB39BA88}
-		{F10B1DBE-26E2-4DB2-88BB-ABF1BBD7B333} = {01B4AA52-1A9B-4953-9C0D-788C7D563510}
-		{C41CF6F2-6349-4337-BD43-C5A9F004ACB2} = {01B4AA52-1A9B-4953-9C0D-788C7D563510}
-		{DCC48173-3AE4-4358-BA94-8ADDF97FA99B} = {01B4AA52-1A9B-4953-9C0D-788C7D563510}
-		{2367B9F8-3513-4DDE-AF9C-27776A17198E} = {6DB22EF3-1D10-4798-9A84-D07031F7C9D2}
+		{EDD9C00E-045B-43A4-8C49-6125868A93F3} = {3368112B-37D1-436F-8432-96112F174044}
+		{BFCE71AD-DEDF-4449-BE2F-86C058C99B37} = {3368112B-37D1-436F-8432-96112F174044}
+		{62F4B9C9-59F0-4536-82C7-F6D5467A4B56} = {EDD9C00E-045B-43A4-8C49-6125868A93F3}
+		{A4FC5BBB-65FD-4D5C-AED9-216886ED2304} = {431042A6-890E-404A-9373-18B489CF28C4}
+		{F51D0312-D31E-4FDD-A15C-15019FB713DD} = {431042A6-890E-404A-9373-18B489CF28C4}
+		{431042A6-890E-404A-9373-18B489CF28C4} = {3368112B-37D1-436F-8432-96112F174044}
+		{ED249510-1C73-43EE-A817-744FB0EB7427} = {EDD9C00E-045B-43A4-8C49-6125868A93F3}
+		{F0E87A49-AC03-4132-A3E0-1E262C9F529F} = {3368112B-37D1-436F-8432-96112F174044}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77D7677C-894B-4704-9F22-D96AE07EB721}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

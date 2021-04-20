@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Services\Services\Rosier.Blog.Services.csproj" />
+    <ProjectReference Include="..\..\..\Model\Rosier.Blog.Model.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+</Project>

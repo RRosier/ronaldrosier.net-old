@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="4.2.0" />
+    <PackageReference Include="jQuery" Version="1.7.1" />
+    <PackageReference Include="jQuery.UI.Combined" Version="1.8.16" />
+    <PackageReference Include="jQuery.Validation" Version="1.8.1" />
+    <PackageReference Include="jQuery.vsdoc" Version="1.6" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
+    <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" />
+    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" />
+    <PackageReference Include="Modernizr" Version="1.7" />
+    <PackageReference Include="Mvc3Futures" Version="3.0.20105" />
+    <PackageReference Include="MvcContrib.Mvc3-ci" Version="3.0.100" />
+    <PackageReference Include="RecaptchaNet" Version="2.1.0" />
+    <PackageReference Include="Rosier.Akismet.Net" Version="1.1.0" />
+    <PackageReference Include="SyntaxHighlighter" Version="3.0.83" />
+    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+</Project>
