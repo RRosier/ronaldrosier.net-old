@@ -9,9 +9,9 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/Src/Rosier.Blog.Web2/bin/Debug/net5.0/Rosier.Blog.Web.dll",
+			"program": "${workspaceFolder}/Src/Rosier.Blog.Web/bin/Debug/net5.0/Rosier.Blog.Web.dll",
 			"args": [],
-			"cwd": "${workspaceFolder}/Src/Rosier.Blog.Web2",
+			"cwd": "${workspaceFolder}/Src/Rosier.Blog.Web",
 			"stopAtEntry": false,
 			"serverReadyAction": {
 				"action": "openExternally",

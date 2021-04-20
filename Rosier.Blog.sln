@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Services.Tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rosier.Blog.Model", "Src\Model\Rosier.Blog.Model.csproj", "{F0E87A49-AC03-4132-A3E0-1E262C9F529F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Web", "Src\Rosier.Blog.Web2\Rosier.Blog.Web.csproj", "{579DE327-078F-4DE4-89CD-BB53465ACADC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosier.Blog.Web", "Src\Rosier.Blog.Web\Rosier.Blog.Web.csproj", "{579DE327-078F-4DE4-89CD-BB53465ACADC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

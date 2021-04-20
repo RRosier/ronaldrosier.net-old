@@ -1,17 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Rosier.Blog.Model.csproj" />
-    <ProjectReference Include="..\Rosier.Blog.Services.Abstractions\Rosier.Blog.Services.Abstractions.csproj" />
-    <ProjectReference Include="..\Rosier.Blog.Services\Rosier.Blog.Services.csproj" />
-  </ItemGroup>
 
 </Project>
