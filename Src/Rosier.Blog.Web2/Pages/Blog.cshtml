@@ -4,7 +4,7 @@
     ViewData["Title"] = "Blog";
 }
 
-@foreach(var entry in Model.Entries)
+@foreach(var article in Model.Articles)
 {
-    @await Html.PartialAsync("_Article", entry)
+    @await Html.PartialAsync("_Article", article)
 }

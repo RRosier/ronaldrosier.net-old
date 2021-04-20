@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Rosier.Blog.Services;
-using Rosier.Blog.Model;
+using Rosier.Blog.Models;
 
 namespace Rosier.Blog.Web.Pages.Blog
 {
@@ -19,10 +19,10 @@ namespace Rosier.Blog.Web.Pages.Blog
         }
         public async Task OnGetAsync(CancellationToken token)
         {
-            var entries = await this.blogService.GetRecentEntriesAsync(10, token);
-            this.Entries = entries.ToArray();
+            var entries = await this.blogService.GetRecentArticlesAsync(10, token);
+            this.Articles = entries.ToArray();
         }
 
-        public BlogEntry[] Entries { get; set; }
+        public Article[] Articles { get; set; }
     }
 }

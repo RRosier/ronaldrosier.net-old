@@ -130,6 +130,7 @@ a.navbar-brand {
 .article .head .article-info a.comments {
   background-color: #dcd3c9;
   color: #000;
+  padding: 0 5px;
 }
 
 .article .content {
