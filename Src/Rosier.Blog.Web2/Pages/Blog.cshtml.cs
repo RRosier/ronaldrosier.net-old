@@ -17,10 +17,18 @@ namespace Rosier.Blog.Web.Pages.Blog
         {
             this.blogService = blogService ?? throw new ArgumentNullException(nameof(blogService));
         }
-        public async Task OnGetAsync(CancellationToken token)
+        public async Task OnGetAsync(string title, CancellationToken token)
         {
-            var entries = await this.blogService.GetRecentArticlesAsync(10, token);
-            this.Articles = entries.ToArray();
+            if (string.IsNullOrEmpty(title))
+            {
+                var entries = await this.blogService.GetRecentArticlesAsync(10, token);
+                this.Articles = entries.ToArray();
+            }
+            else
+            {
+                var entry = await this.blogService.GetRecentArticlesAsync(1, token);
+                this.Articles = entry.ToArray();
+            }
         }
 
         public Article[] Articles { get; set; }

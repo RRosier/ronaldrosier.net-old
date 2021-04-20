@@ -13,6 +13,11 @@ namespace Rosier.Blog.Models
         /// </summary>
         public int ID { get; set; }
 
+		/// <summary>
+		/// Unique link to identify the entry.
+		/// </summary>
+		public string PermaLink { get; set; }
+
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
