@@ -33,7 +33,7 @@ namespace Rosier.Blog.Web
         /// <exception cref="T:System.ArgumentNullException">The <paramref name="requestContext"/> parameter is null.</exception>
         ///   
         /// <exception cref="T:System.ArgumentException">The <paramref name="controllerName"/> parameter is null or empty.</exception>
-        public override IController CreateController(RequestContext requestContext, string controllerName)
+        public override IController CreateController(System.Web.Routing.RequestContext requestContext, string controllerName)
         {
             if (string.IsNullOrEmpty(controllerName))
                 throw new ArgumentNullException("controllerName");
@@ -71,7 +71,7 @@ namespace Rosier.Blog.Web
         /// <returns>
         /// The controller type.
         /// </returns>
-        protected override Type GetControllerType(RequestContext requestContext, string controllerName)
+        protected override Type GetControllerType(System.Web.Routing.RequestContext requestContext, string controllerName)
         {
             switch(controllerName)
             {

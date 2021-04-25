@@ -27,7 +27,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Src/Rosier.Blog.Web/Rosier.Blog.Web.csproj",
+                "${workspaceFolder}/Src/Web/Rosier.Blog.Web.csproj",
                 "/property:GenerateFjullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -40,7 +40,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/Src/Rosier.Blog.Web/Rosier.Blog.Web.csproj",
+                "${workspaceFolder}/Src/Web/Rosier.Blog.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

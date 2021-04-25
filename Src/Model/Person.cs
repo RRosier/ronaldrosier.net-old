@@ -14,7 +14,7 @@ namespace Rosier.Blog.Model
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
-        public int ID { get; set; }
+        public int PersonId { get; set; }
 
         /// <summary>
         /// Gets or sets the display name.

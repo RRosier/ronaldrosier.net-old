@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.Bcl" Version="1.1.10" />
     <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168" />
     <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.21" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Modernizr" Version="1.7" />
     <PackageReference Include="Mvc3Futures" Version="3.0.20105" />
     <PackageReference Include="MvcContrib.Mvc3-ci" Version="3.0.100" />
@@ -19,8 +20,19 @@
     <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
     <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Rosier.Blog.Data.csproj" />
+    <ProjectReference Include="..\Model\Rosier.Blog.Model.csproj" />
+    <ProjectReference Include="..\Services\Services.ViewModel\Rosier.Blog.Services.ViewModel.csproj" />
+    <ProjectReference Include="..\Services\Services\Rosier.Blog.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <IsPackable>false</IsPackable>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 </Project>

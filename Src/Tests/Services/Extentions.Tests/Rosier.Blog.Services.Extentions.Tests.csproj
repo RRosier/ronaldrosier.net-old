@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Model\Rosier.Blog.Model.csproj" />
+    <ProjectReference Include="..\..\..\Services\Services\Rosier.Blog.Services.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>

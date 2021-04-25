@@ -5,6 +5,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using NUnit.Framework;
 using Rosier.Blog.Model;
+using Rosier.Blog.Services;
 
 namespace Rosier.Blog.Services.Extentions.Tests
 {

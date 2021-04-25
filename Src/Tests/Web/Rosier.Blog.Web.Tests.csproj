@@ -10,4 +10,7 @@
     <ProjectReference Include="..\..\Services\Services\Rosier.Blog.Services.csproj" />
     <ProjectReference Include="..\..\Services\Services.ViewModel\Rosier.Blog.Services.ViewModel.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
 </Project>

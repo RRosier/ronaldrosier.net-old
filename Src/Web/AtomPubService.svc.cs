@@ -8,6 +8,7 @@ using Rosier.Blog.Services;
 using Rosier.Blog.Model;
 using Rosier.Blog.Data;
 using System.IO;
+using System.Web.Hosting;
 using System.ServiceModel.Web;
 
 namespace Rosier.Blog.Web
@@ -112,7 +113,7 @@ namespace Rosier.Blog.Web
             int byteCount;
 
             string id = Guid.NewGuid().ToString();
-            string apPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath+@"Content\Images\"+id+".png";
+            string apPath = HostingEnvironment.ApplicationPhysicalPath+@"Content\Images\"+id+".png";
 
                 FileStream fs = new FileStream(apPath, FileMode.Create);
                 do

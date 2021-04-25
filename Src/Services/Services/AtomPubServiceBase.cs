@@ -524,6 +524,7 @@ namespace Rosier.Blog.Services
             {
                 throw new WebProtocolException(HttpStatusCode.NotFound);
             }
+
             bool updatedItem = PutMedia(collection, id, s, WebOperationContext.Current.IncomingRequest.ContentType, GetDescriptionFromSlugHeader());
             if (!updatedItem)
             {
