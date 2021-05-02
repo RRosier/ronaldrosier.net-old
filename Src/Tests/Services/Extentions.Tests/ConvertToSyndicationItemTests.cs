@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
-using NUnit.Framework;
 using Rosier.Blog.Model;
 using Rosier.Blog.Services;
+using Xunit;
 
 namespace Rosier.Blog.Services.Extentions.Tests
 {
-    [TestFixture]
     public class ConvertToSyndicationItemTests
     {
-        [Test]
+        [Fact]
         public void ConvertToSyndicationItem_SimpleEntry()
         {
             var entry = new BlogEntry()
@@ -31,16 +30,16 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var syndicationItem = entry.ConvertToSyndicationItem(new Uri("http://unittest.ronaldrosier.net"));
 
-            Assert.IsNotNull(syndicationItem, "Expected an item");
-            Assert.AreEqual(entry.BlogEntryId.ToString(), syndicationItem.Id);
-            Assert.AreEqual(entry.CreationDate, syndicationItem.PublishDate);
-            Assert.AreEqual(entry.LastUpdateDate, syndicationItem.LastUpdatedTime);
-            Assert.AreEqual(entry.Title, syndicationItem.Title.Text);
-            Assert.AreEqual(entry.Content, ((TextSyndicationContent)syndicationItem.Content).Text);
-            Assert.AreEqual(1, syndicationItem.Authors.Count, "Expected only 1 author");
+            Assert.NotNull(syndicationItem);
+            Assert.Equal(entry.BlogEntryId.ToString(), syndicationItem.Id);
+            Assert.Equal(entry.CreationDate, syndicationItem.PublishDate);
+            Assert.Equal(entry.LastUpdateDate, syndicationItem.LastUpdatedTime);
+            Assert.Equal(entry.Title, syndicationItem.Title.Text);
+            Assert.Equal(entry.Content, ((TextSyndicationContent)syndicationItem.Content).Text);
+            Assert.Single(syndicationItem.Authors);
         }
 
-        [Test]
+        [Fact]
         public void ConvertToSyndicationItem_With_Categories()
         {
             var entry = new BlogEntry()
@@ -64,10 +63,10 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var syndicationItem = entry.ConvertToSyndicationItem(new Uri("http://unittest.ronaldrosier.net"));
 
-            Assert.AreEqual(2, syndicationItem.Categories.Count);
+            Assert.Equal(2, syndicationItem.Categories.Count);
         }
 
-        [Test]
+        [Fact]
         public void ConvertToSyndicationPerson_simple()
         {
             var person = new Person()
@@ -78,11 +77,11 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var syndicationPerson = person.ConvertToSyndicationPerson();
 
-            Assert.AreEqual(person.DisplayName, syndicationPerson.Name);
-            Assert.AreEqual(person.EmailHash, syndicationPerson.Email);
+            Assert.Equal(person.DisplayName, syndicationPerson.Name);
+            Assert.Equal(person.EmailHash, syndicationPerson.Email);
         }
 
-        [Test]
+        [Fact]
         public void ConvertToSyndicationCategory_Simple()
         {
             var category = new Category()
@@ -93,9 +92,9 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var syndicationCategory = category.ConvertToSyndicationCategory();
 
-            Assert.IsNotNull(syndicationCategory);
-            Assert.AreEqual(category.Name, syndicationCategory.Label);
-            Assert.AreEqual(category.Value, syndicationCategory.Name);
+            Assert.NotNull(syndicationCategory);
+            Assert.Equal(category.Name, syndicationCategory.Label);
+            Assert.Equal(category.Value, syndicationCategory.Name);
         }
     }
 }

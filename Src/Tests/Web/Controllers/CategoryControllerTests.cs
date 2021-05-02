@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Rosier.Blog.Web.Controllers;
 using Rosier.Blog.Services;
 using Moq;
 using System.Web.Mvc;
 using Rosier.Blog.Service.ViewModel;
+using Xunit;
 
 namespace Rosier.Blog.Web.Tests.Controllers
 {
-    [TestFixture]
     public class CategoryControllerTests : ControllerTestsBase<CategoryController>
     {
 
-        [Test]
+        [Fact]
         public void Index_Returns_NotFound_View()
         {
             const string expectedViewName = "NotFound";
 
             var result = this.controller.Index() as ViewResult;
 
-            Assert.IsNotNull(result, "Expected a ViewResult");
-            Assert.AreEqual(expectedViewName, result.ViewName, "Expected viewname was '{0}' but returned '{1}'", expectedViewName, result.ViewName);
+            Assert.NotNull(result);
+            Assert.Equal(expectedViewName, result.ViewName);
         }
 
-        [Test]
+        [Fact]
         public void Listing_EmptyList_ReturnsEmptyView()
         {
             const string expectedViewName = "_Empty";
@@ -35,11 +34,11 @@ namespace Rosier.Blog.Web.Tests.Controllers
 
             var result = this.controller.Listing(categoryValue) as ViewResult;
 
-            Assert.IsNotNull(result, "Expected a ViewResult");
-            Assert.AreEqual(expectedViewName, result.ViewName, "Expected viewname was '{0}' but returned '{1}'", expectedViewName, result.ViewName);
+            Assert.NotNull(result);
+            Assert.Equal(expectedViewName, result.ViewName);
         }
 
-        [Test]
+        [Fact]
         public void Listing_Non_Empty_List_Returns_Listing_View()
         {
             const string expectedViewName = "Listing";
@@ -51,10 +50,10 @@ namespace Rosier.Blog.Web.Tests.Controllers
 
             var result = this.controller.Listing(categoryValue) as ViewResult;
 
-            Assert.IsNotNull(result, "Expected a ViewResult");
-            Assert.AreEqual(expectedViewName, result.ViewName, "Expected viewname was '{0}' but returned '{1}'", expectedViewName, result.ViewName);
-            Assert.AreEqual(list,result.Model);
-            Assert.AreEqual(expectedTitle, result.ViewBag.Title);
+            Assert.NotNull(result);
+            Assert.Equal(expectedViewName, result.ViewName);
+            Assert.Equal(list,result.Model);
+            Assert.Equal(expectedTitle, result.ViewBag.Title);
         }
     }
 }

@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Rosier.Blog.Model;
-using NUnit.Framework;
+using Xunit;
 
 namespace Rosier.Blog.Model.Tests
 {
-    [TestFixture]
     public class BlogEntryTests
     {
-        [TestCase("This is my string", "this_is_my_string")]
-        [TestCase("CSS", "css")]
-        [TestCase("ASP.NET MVC", "aspnet_mvc")]
-        [TestCase(".NET", "net")]
+        [Theory]
+        [InlineData("This is my string", "this_is_my_string")]
+        [InlineData("CSS", "css")]
+        [InlineData("ASP.NET MVC", "aspnet_mvc")]
+        [InlineData(".NET", "net")]
         public void StripeDownTitle(string original, string expected)
         {
             string returned = Rosier.Blog.Model.BlogEntry.StripeDownTitle(original);
-            Assert.AreEqual(expected, returned);
+            Assert.Equal(expected, returned);
         }
 
-        [Test]
+        [Fact]
         public void PrepareNewEntry_NoCreationDate()
         {
             const string expectedStrippedDownTitle = "this_is_my_title_just_for_test";
@@ -33,11 +33,11 @@ namespace Rosier.Blog.Model.Tests
             entry.PrepareNewEntry();
             var creationDateToString = entry.CreationDate.ToString("YYYYMMDDHHmm");
 
-            Assert.AreEqual(expectedStrippedDownTitle, entry.StrippedDownTitle);
-            Assert.AreEqual(expectedCreationDate, creationDateToString);
+            Assert.Equal(expectedStrippedDownTitle, entry.StrippedDownTitle);
+            Assert.Equal(expectedCreationDate, creationDateToString);
         }
 
-        [Test]
+        [Fact]
         public void PrepareNewEntry_WithCreationDate()
         {
             const string expectedStrippedDownTitle = "this_is_my_title_just_for_test";
@@ -51,8 +51,8 @@ namespace Rosier.Blog.Model.Tests
 
             entry.PrepareNewEntry();
 
-            Assert.AreEqual(expectedStrippedDownTitle, entry.StrippedDownTitle);
-            Assert.AreEqual(expectedCreationDate, entry.CreationDate);
+            Assert.Equal(expectedStrippedDownTitle, entry.StrippedDownTitle);
+            Assert.Equal(expectedCreationDate, entry.CreationDate);
         }
     }
 

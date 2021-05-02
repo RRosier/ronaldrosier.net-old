@@ -2,28 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Rosier.Blog.Service;
 using Rosier.Blog.Model;
 using Moq;
+using Xunit;
 
 namespace Rosier.Blog.Services.BlogServiceTests
 {
-    [TestFixture]
-    public class EntryListsTests
+    public class EntryListsTests: IDisposable
     {
         IBlogService service;
         Mock<IUnitOfWork> unitOfWork;
 
-        [SetUp]
-        public void SetUp()
+        public EntryListsTests()
         {
             this.unitOfWork = new Mock<IUnitOfWork>();
             this.service = new BlogService(this.unitOfWork.Object);
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             this.service = null;
             this.unitOfWork = null;
@@ -31,7 +28,7 @@ namespace Rosier.Blog.Services.BlogServiceTests
 
         #region Entry List by Category
 
-        [Test]
+        [Fact]
         public void GetEntriesByCategory_Success()
         {
             var list = CreateList();
@@ -41,10 +38,10 @@ namespace Rosier.Blog.Services.BlogServiceTests
             var category = "aspnetmvc";
             var filteredList = this.service.GetEntriesByCategory(category, 1);
 
-            Assert.That(filteredList.Count() == 1, string.Format("Expected number of items '{0}' but was '{1}'!", 1, list.Count()));
+            Assert.Single(filteredList);
         }
 
-        [Test]
+        [Fact]
         public void GetEntriesByCategory_NoEntriesFoundList_ReturnEmptyList()
         {
             var list = CreateList();
@@ -54,11 +51,10 @@ namespace Rosier.Blog.Services.BlogServiceTests
             var category = "unknowncategory";
             var filteredList = this.service.GetEntriesByCategory(category, 1);
 
-            Assert.IsNotNull(filteredList);
-            Assert.That(filteredList.Count() == 0, string.Format("Expected number of items '{0}' but was '{1}'!", 0, list.Count()));
+            Assert.Empty(filteredList);
         }
 
-        [Test]
+        [Fact]
         public void GetEntriesByCategory_NullAsSearchedCategory_ReturnsEmptyList()
         {
             var list = CreateList();
@@ -68,8 +64,7 @@ namespace Rosier.Blog.Services.BlogServiceTests
             string category = null;
             var filteredList = this.service.GetEntriesByCategory(category, 1);
 
-            Assert.IsNotNull(filteredList);
-            Assert.That(filteredList.Count() == 0, string.Format("Expected number of items '{0}' but was '{1}'!", 0, list.Count()));
+            Assert.Empty(filteredList);
 
         }
 

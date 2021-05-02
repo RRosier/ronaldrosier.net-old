@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Moq;
 using Rosier.Blog.Web;
 using Rosier.Blog.Model;
@@ -10,27 +9,24 @@ using System.Collections.ObjectModel;
 using Rosier.Blog.Services;
 using System.ServiceModel.Syndication;
 using System.IO;
+using Xunit;
 
 namespace Rosier.Blog.Service.AtomService.Tests
 {
-    [TestFixture]
     public class AtomServiceTests
     {
         private AtomPubService atomService;
         private Mock<IUnitOfWork> unitOfWorkMock;
         private Mock<IWebOperationContext> webOperationContext;
 
-        [SetUp]
-        public void SetUp()
+        public AtomServiceTests()
         {
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.webOperationContext = new Mock<IWebOperationContext>();
             this.atomService = new AtomPubService(this.unitOfWorkMock.Object, this.webOperationContext.Object);
         }
-        [TearDown]
-        public void TearDown(){}
 
-        [Test]
+        [Fact]
         public void Get_Service_Document()
         {
             //var list = CreateCollection();

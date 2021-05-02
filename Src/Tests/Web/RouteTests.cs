@@ -2,110 +2,106 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Moq;
 using System.ComponentModel;
+using Xunit;
 
 namespace Rosier.Blog.Web.Tests
 {
-    [TestFixture]
-    public class RouteTests
+    public class RouteTests: IDisposable
     {
         private RouteCollection routes;
 
-        [TestFixtureSetUp]
-        public void TestSetUp()
+        public RouteTests()
         {
             routes = new RouteCollection();
             MvcApplication.RegisterRoutes(routes);
         }
-        [TestFixtureTearDown]
-        public void TestTearDown()
+
+        public void Dispose()
         {
             routes = null;
         }
 
-        [Test]
+        [Fact]
         public void Default_Route_Blog_Index()
         {
             RouteTestHelper.AssertRoute(routes, "~/",
                 new { Controller = "blog", Action = "index" });
         }
 
-        [Test]
+        [Fact]
         public void Entry_Route()
         {
             RouteTestHelper.AssertRoute(routes, "~/Blog/2012/01/01/some_blog_entry",
                 new { Controller = "Blog", Action = "Entry", year = "2012", month = "01", day = "01", title = "some_blog_entry" });
         }
 
-        [Test]
+        [Fact]
         public void List_Entries_By_Day()
         {
             RouteTestHelper.AssertRoute(routes, "~/Blog/2012/01/01",
                 new { Controller = "Blog", Action = "ListByDay", year = "2012", month = "01", day = "01" });
         }
 
-        [Test]
+        [Fact]
         public void List_Entries_By_Month()
         {
             RouteTestHelper.AssertRoute(routes, "~/Blog/2012/01",
                 new { Controller = "Blog", Action = "ListByMonth", year = "2012", month = "01" });
         }
 
-        [Test]
+        [Fact]
         public void List_Entries_By_Year()
         {
             RouteTestHelper.AssertRoute(routes, "~/Blog/2012",
                 new { Controller = "Blog", Action = "ListByYear", year = "2012" });
         }
 
-        [Test]
+        [Fact]
         public void Category_By_Id()
         {
             RouteTestHelper.AssertRoute(routes, "~/Category/jQuery",
                 new { Controller = "Category", Action = "Listing", categoryValue = "jQuery" });
         }
 
-        [Test]
+        [Fact]
         public void Contact()
         {
             RouteTestHelper.AssertRoute(routes, "~/Contact",
                 new { Controller = "Contact", Action = "Index" });
         }
 
-        [Test]
+        [Fact]
         public void About()
         {
             RouteTestHelper.AssertRoute(routes, "~/About",
                 new { Controller = "About", Action = "Index" });
         }
 
-        [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [Fact]
         public void Ignore_axd_files()
         {
-            RouteTestHelper.AssertRoute(routes, "~/some.axd",
-                new { Controller = "", Action = "" });
+            Assert.Throws<NullReferenceException>(() =>
+                RouteTestHelper.AssertRoute(routes, "~/some.axd",
+                    new { Controller = "", Action = "" }));
         }
 
-        [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [Fact]
         public void Ignore_axd_files_with_something_behind()
         {
-            RouteTestHelper.AssertRoute(routes, "~/some.axd/with?something.behind",
-                new { Controller = "", Action = "" });
+            Assert.Throws<NullReferenceException>(() => 
+                RouteTestHelper.AssertRoute(routes, "~/some.axd/with?something.behind",
+                    new { Controller = "", Action = "" }));
         }
 
-        [Test]
-        [ExpectedException(typeof(NullReferenceException))]
+        [Fact]
         public void Ignore_xml_files()
         {
-            RouteTestHelper.AssertRoute(routes, "~/wlwmanifest.xml",
-                new { Controller = "", Action=""});
+            Assert.Throws<NullReferenceException>(() => RouteTestHelper.AssertRoute(routes, "~/wlwmanifest.xml", new { Controller = "", Action = "" }));
         }
     }
 
@@ -125,11 +121,11 @@ namespace Rosier.Blog.Web.Tests
                 .Returns(url);
 
             RouteData routeData = routes.GetRouteData(httpContextMock.Object);
-            Assert.IsNotNull(routeData, "Expected to find the route");
+            Assert.NotNull(routeData);
 
             foreach (PropertyValue property in GetProperties(expectations))
             {
-                Assert.IsTrue(string.Equals(property.Value.ToString(),
+                Assert.True(string.Equals(property.Value.ToString(),
                     routeData.Values[property.Name].ToString(),
                     StringComparison.OrdinalIgnoreCase),
                     string.Format("Expected '{0}', not '{1}' for '{2}'",

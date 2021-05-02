@@ -2,38 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Rosier.Blog.Web.Controllers;
+using Xunit;
 
 namespace Rosier.Blog.Web.Tests
 {
-    [TestFixture]
     public class BlogControllerFactoryTests
     {
         private BlogControllerFactory factory; 
 
-        [TestFixtureSetUp]
-        public void TestSetUp()
+        public BlogControllerFactoryTests()
         {
             factory = new BlogControllerFactory();
         }
 
-        [TestFixtureTearDown]
-        public void TestTearDown()
-        {
-        }
-
-        [TestCase("blog", typeof(BlogController))]
-        [TestCase("contact", typeof(ContactController))]
-        [TestCase("category", typeof(CategoryController))]
-        [TestCase("about", typeof(AboutController))]
-        [TestCase("error", typeof(ErrorController))]
-        [TestCase("", typeof(ArgumentNullException), ExpectedException=typeof(ArgumentNullException))]
+        [Theory]
+        [InlineData("blog", typeof(BlogController))]
+        [InlineData("contact", typeof(ContactController))]
+        [InlineData("category", typeof(CategoryController))]
+        [InlineData("about", typeof(AboutController))]
+        [InlineData("error", typeof(ErrorController))]
+        //[InlineData("", typeof(ArgumentNullException), ExpectedException=typeof(ArgumentNullException))]
         public void Create_BlogController(string controllerName, Type expectedtype)
         {
             var controller = factory.CreateController(new System.Web.Routing.RequestContext(), controllerName);
 
-            Assert.AreEqual(expectedtype, controller.GetType());
+            Assert.Equal(expectedtype, controller.GetType());
         }
     }
 }

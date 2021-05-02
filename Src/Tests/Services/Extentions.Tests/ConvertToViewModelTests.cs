@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NUnit.Framework;
 using Rosier.Blog.Model;
 using Rosier.Blog.Services;
+using Xunit;
 
 namespace Rosier.Blog.Services.Extentions.Tests
 {
-    [TestFixture]
     public class ConvertToViewModelTests
     {
-        [Test]
+        [Fact]
         public void BlogEntry_BasicConvertions()
         {
             var entry = new BlogEntry()
@@ -25,14 +24,14 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var entryView = entry.ConvertToViewModel();
 
-            Assert.AreEqual(entry.Title, entryView.Title);
-            Assert.AreEqual(entry.Content, entryView.Content);
-            Assert.AreEqual(entry.BlogEntryId.ToString(), entryView.ID);
-            Assert.AreEqual(entry.TotalComments, entryView.NrComments);
-            Assert.IsTrue(entryView.ShowTitleLink);
+            Assert.Equal(entry.Title, entryView.Title);
+            Assert.Equal(entry.Content, entryView.Content);
+            Assert.Equal(entry.BlogEntryId.ToString(), entryView.ID);
+            Assert.Equal(entry.TotalComments, entryView.NrComments);
+            Assert.True(entryView.ShowTitleLink);
         }
 
-        [Test]
+        [Fact]
         public void BlogEntry_TimeString_No_Offset()
         {
             var date = new DateTimeOffset(2012, 1, 21, 14, 3, 46, new TimeSpan(0, 0, 0));
@@ -45,10 +44,10 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var entryView = entry.ConvertToViewModel();
 
-            Assert.AreEqual(expected, entryView.UtcTimeString);
+            Assert.Equal(expected, entryView.UtcTimeString);
         }
 
-        [Test]
+        [Fact]
         public void BlogEntry_TimeString_With_Positive_Offset()
         {
             var date = new DateTimeOffset(2012, 1, 21, 14, 3, 46, new TimeSpan(2, 0, 0));
@@ -61,10 +60,10 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var entryView = entry.ConvertToViewModel();
 
-            Assert.AreEqual(expected, entryView.UtcTimeString);
+            Assert.Equal(expected, entryView.UtcTimeString);
         }
 
-        [Test]
+        [Fact]
         public void BlogEntry_TimeString_With_Negative_Offset()
         {
             var date = new DateTimeOffset(2012, 1, 21, 14, 3, 46, new TimeSpan(-2, 0, 0));
@@ -77,10 +76,10 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var entryView = entry.ConvertToViewModel();
 
-            Assert.AreEqual(expected, entryView.UtcTimeString);
+            Assert.Equal(expected, entryView.UtcTimeString);
         }
 
-        [Test]
+        [Fact]
         public void BlogEntry_EntryLink()
         {
             var date = new DateTimeOffset(2012, 1, 21, 14, 3, 46, new TimeSpan(0, 0, 0));
@@ -95,10 +94,10 @@ namespace Rosier.Blog.Services.Extentions.Tests
 
             var entryView = entry.ConvertToViewModel();
 
-            Assert.AreEqual(expected, entryView.EntryLink);
+            Assert.Equal(expected, entryView.EntryLink);
         }
 
-        [Test]
+        [Fact]
         public void BlogEntry_CategoryValue()
         {
             var expected = "aspnet_mvc";
@@ -114,7 +113,7 @@ namespace Rosier.Blog.Services.Extentions.Tests
             };
 
             var entryView = entry.ConvertToViewModel();
-            Assert.AreEqual(expected, entryView.Categories.First().Value);
+            Assert.Equal(expected, entryView.Categories.First().Value);
         }
     }
 }
