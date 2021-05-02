@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ServiceModel.Web;
+//using System.ServiceModel.Web;
 using System.Net;
 
 namespace Rosier.Blog.Services
@@ -27,7 +27,8 @@ namespace Rosier.Blog.Services
         {
             get
             {
-                return WebOperationContext.Current.IncomingRequest.UriTemplateMatch.BaseUri;
+                return new Uri("");
+                //return WebOperationContext.Current.IncomingRequest.UriTemplateMatch.BaseUri;
             }
         }
 
@@ -39,8 +40,8 @@ namespace Rosier.Blog.Services
         /// </value>
         public string OutgoingContentType 
         {
-            get { return WebOperationContext.Current.OutgoingResponse.ContentType; }
-            set { WebOperationContext.Current.OutgoingResponse.ContentType = value; } 
+            get { return ""; } // WebOperationContext.Current.OutgoingResponse.ContentType; }
+            set { } // WebOperationContext.Current.OutgoingResponse.ContentType = value; } 
         }
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace Rosier.Blog.Services
         /// </value>
         public string IncomingContentType 
         {
-            get { return WebOperationContext.Current.IncomingRequest.ContentType; }
+            get { return ""; } // WebOperationContext.Current.IncomingRequest.ContentType; }
         }
 
         /// <summary>
@@ -60,7 +61,7 @@ namespace Rosier.Blog.Services
         /// <returns></returns>
         public string GetDescriptionFromSlugHeader()
         {
-            return WebOperationContext.Current.IncomingRequest.Headers["Slug"];
+            return "";// WebOperationContext.Current.IncomingRequest.Headers["Slug"];
         }
 
         /// <summary>
@@ -71,8 +72,8 @@ namespace Rosier.Blog.Services
         /// </value>
         public HttpStatusCode OutgoingStatusCode 
         {
-            get { return WebOperationContext.Current.OutgoingResponse.StatusCode; }
-            set { WebOperationContext.Current.OutgoingResponse.StatusCode = value; }
+            get { return HttpStatusCode.NotFound; }// WebOperationContext.Current.OutgoingResponse.StatusCode; }
+            set { } // WebOperationContext.Current.OutgoingResponse.StatusCode = value; }
         }
 
         /// <summary>
@@ -81,7 +82,7 @@ namespace Rosier.Blog.Services
         /// <param name="location">The location.</param>
         public void SetStatusAsCreated(Uri location)
         {
-            WebOperationContext.Current.OutgoingResponse.SetStatusAsCreated(location);
+            //WebOperationContext.Current.OutgoingResponse.SetStatusAsCreated(location);
         }
 
 
@@ -91,7 +92,7 @@ namespace Rosier.Blog.Services
         /// <returns></returns>
         public string GetDescriptionFromSlughHeader()
         {
-            return WebOperationContext.Current.IncomingRequest.Headers["Slug"];
+            return ""; // WebOperationContext.Current.IncomingRequest.Headers["Slug"];
         }
     }
 }

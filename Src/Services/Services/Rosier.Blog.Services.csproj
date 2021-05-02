@@ -1,21 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Rosier.Blog.Data.csproj" />
     <ProjectReference Include="..\..\Model\Rosier.Blog.Model.csproj" />
     <ProjectReference Include="..\Services.ViewModel\Rosier.Blog.Services.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Bcl" Version="1.1.6" />
-    <PackageReference Include="Microsoft.Bcl.Async" Version="1.0.165" />
-    <PackageReference Include="Microsoft.Bcl.Build" Version="1.0.13" />
-    <PackageReference Include="Microsoft.ServiceModel.Web" Version="1.0.1" />
-    <PackageReference Include="Rosier.Akismet.Net" Version="1.1.0" />
-    <PackageReference Include="System.ServiceModel.Syndication" Version="4.7.0" />
+    <!--<PackageReference Include="Microsoft.ServiceModel.Web" Version="1.0.1" />-->
+    <!--<PackageReference Include="Rosier.Akismet.Net" Version="1.1.0" />-->
+    <PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
+    <PackageReference Include="System.ServiceModel.Web" Version="1.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.ServiceModel.Web" />
-  </ItemGroup>
-  <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-  </PropertyGroup>
+
 </Project>
