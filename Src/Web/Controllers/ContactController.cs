@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using Rosier.Blog.Services;
 using Rosier.Blog.Service.ViewModel;
 using System.Net.Mail;
 using System.Configuration;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Rosier.Blog.Web.Controllers
 {
@@ -20,14 +20,14 @@ namespace Rosier.Blog.Web.Controllers
         //
         // GET: /Contact/
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             this.CommonData();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(ContactViewModel contactInfo)
+        public IActionResult Index(ContactViewModel contactInfo)
         {
             this.CommonData();
 

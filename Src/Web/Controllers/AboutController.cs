@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Rosier.Blog.Services;
 
 namespace Rosier.Blog.Web.Controllers
@@ -17,7 +17,7 @@ namespace Rosier.Blog.Web.Controllers
         //
         // GET: /About/
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             CommonData();
             return View("UnderConstruction");

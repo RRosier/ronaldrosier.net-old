@@ -34,7 +34,7 @@
     </div>
 </script>
 
-@Html.Partial("_BlogEntry", Model)
+<partial name="_BlogEntry" model="Model" />
 
 <h3>Comments (<span class="commentsNr">@Model.NrComments</span>)</h3>
 <a name="#comments"></a>

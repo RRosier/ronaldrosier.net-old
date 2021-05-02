@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Rosier.Blog.Services;
 
 namespace Rosier.Blog.Web.Controllers
@@ -16,7 +16,7 @@ namespace Rosier.Blog.Web.Controllers
         //
         // GET: /Category/
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View("NotFound");
         }
@@ -27,7 +27,7 @@ namespace Rosier.Blog.Web.Controllers
         /// <param name="categoryValue">The category value.</param>
         /// <param name="page">The page.</param>
         /// <returns></returns>
-        public ActionResult Listing(string categoryValue, int page=1)
+        public IActionResult Listing(string categoryValue, int page=1)
         {
             CommonData();
 

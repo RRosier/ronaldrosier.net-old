@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using Rosier.Blog.Service.ViewModel;
 using Rosier.Blog.Services;
-using Rosier.Akismet.Net;
+//using Rosier.Akismet.Net;
 using System.Configuration;
 using System.Net;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Rosier.Blog.Web.Controllers
 {
@@ -36,7 +37,7 @@ namespace Rosier.Blog.Web.Controllers
         /// </summary>
         /// <param name="page">The page number.</param>
         /// <returns></returns>
-        public ActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1)
         {
             var entries = this.blogService.GetAllEntries(page);//.GetLatestEntries();
 
@@ -60,7 +61,7 @@ namespace Rosier.Blog.Web.Controllers
         /// <param name="day">The day.</param>
         /// <param name="title">The title.</param>
         /// <returns></returns>
-        public ActionResult Entry(int year, int month, int day, string title)
+        public IActionResult Entry(int year, int month, int day, string title)
         {
             CommonData();
 
@@ -82,7 +83,7 @@ namespace Rosier.Blog.Web.Controllers
         /// <param name="day">The day.</param>
         /// <param name="page">The page number.</param>
         /// <returns></returns>
-        public ActionResult ListByDay(int year, int month, int day, int page = 1)
+        public IActionResult ListByDay(int year, int month, int day, int page = 1)
         {
             CommonData();
 
@@ -104,7 +105,7 @@ namespace Rosier.Blog.Web.Controllers
         /// <param name="month">The month.</param>
         /// <param name="page">The page number.</param>
         /// <returns></returns>
-        public ActionResult ListByMonth(int year, int month, int page = 1)
+        public IActionResult ListByMonth(int year, int month, int page = 1)
         {
             CommonData();
             var entries = this.blogService.GetEntriesByMonth(year, month, page);
@@ -123,7 +124,7 @@ namespace Rosier.Blog.Web.Controllers
         /// <param name="year">The year.</param>
         /// <param name="page">The page number.</param>
         /// <returns></returns>
-        public ActionResult ListByYear(int year, int page = 1)
+        public IActionResult ListByYear(int year, int page = 1)
         {
             CommonData();
             var entries = this.blogService.GetEntriesByYear(year, page);
@@ -138,7 +139,7 @@ namespace Rosier.Blog.Web.Controllers
 
         [HttpPost]
         [Authorize] // TODO-rro: temporarly disable this action comment until further notice
-        public async Task<ActionResult> AddComment(CommentEditViewModel comment)
+        public async Task<IActionResult> AddComment(CommentEditViewModel comment)
         {
             return Json(new { Success = false, Messeage = "Due to immens spam on this blog, comments are closed for everyone until I find a way to fight them." });
 
@@ -146,8 +147,9 @@ namespace Rosier.Blog.Web.Controllers
                 return Json(new { Success = false });
 
             // TODO-rro: use IoC to resolve service.
-            var ipaddress = ControllerContext.HttpContext.Request.ServerVariables["REMOTE_HOST"];
-            var userAgent = ControllerContext.HttpContext.Request.UserAgent;
+            //var ipaddress = ControllerContext.HttpContext.Request.ServerVariables["REMOTE_HOST"];
+            //var userAgent = ControllerContext.HttpContext.Request.UserAgent;
+            string ipaddress, userAgent;
 
             // TODO-rro: Place this in a decent configuration mechanisme
             var akismetKey = ConfigurationManager.AppSettings["AkismetKey"];
@@ -171,7 +173,7 @@ namespace Rosier.Blog.Web.Controllers
                 return Json(new { Success = false });
         }
 
-        public ActionResult CreateCaptcha()
+        public IActionResult CreateCaptcha()
         {
             var captchaRequest = new CaptchaRequest();
             captchaRequest.PublicKey = ConfigurationManager.AppSettings["ReCaptchaPublicKey"];
@@ -179,9 +181,10 @@ namespace Rosier.Blog.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult ValidateCaptcha(CaptchaRequest captcha)
+        public IActionResult ValidateCaptcha(CaptchaRequest captcha)
         {
-            var clientIp = Request.ServerVariables["REMOTE_ADDR"];
+            //var clientIp = Request.ServerVariables["REMOTE_ADDR"];
+            string clientIp = "";
             var privateKey = ConfigurationManager.AppSettings["ReCaptchaPrivateKey"];
 
             string data = string.Format("privatekey={0}&remoteip={1}&challenge={2}&response={3}", privateKey, clientIp, captcha.Challenge, captcha.Response);

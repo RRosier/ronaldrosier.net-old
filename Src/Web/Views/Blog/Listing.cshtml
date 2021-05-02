@@ -5,5 +5,5 @@
 }
 
 @foreach (var blogItem in Model) { 
-    @Html.Partial("_BlogEntry", blogItem);
+    <partial name="_BlogEntry" model="blogItem" />
 }

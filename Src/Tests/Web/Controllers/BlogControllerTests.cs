@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Rosier.Blog.Web.Controllers;
-using System.Web.Mvc;
 using Rosier.Blog.Service.ViewModel;
 using Rosier.Blog.Services;
 using Moq;
 using System.Collections.ObjectModel;
 using Xunit;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Rosier.Blog.Web.Tests.Controllers
 {

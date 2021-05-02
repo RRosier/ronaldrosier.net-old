@@ -5,8 +5,8 @@ using System.Text;
 using Rosier.Blog.Web.Controllers;
 using Moq;
 using Rosier.Blog.Services;
-using System.Web.Mvc;
 using Xunit;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Rosier.Blog.Web.Tests.Controllers
 {
