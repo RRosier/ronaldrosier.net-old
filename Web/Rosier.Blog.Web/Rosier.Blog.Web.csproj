@@ -59,8 +59,8 @@
       <HintPath>..\..\packages\EntityFramework.4.2.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ServiceModel.Web">
-      <HintPath>..\..\packages\WcfRestStarterKitPreview2\Microsoft.ServiceModel.Web.dll</HintPath>
+    <Reference Include="Microsoft.ServiceModel.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ServiceModel.Web.1.0.1\lib\net35\Microsoft.ServiceModel.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.165\lib\net45\Microsoft.Threading.Tasks.dll</HintPath>
@@ -78,12 +78,20 @@
     <Reference Include="MvcContrib">
       <HintPath>..\..\packages\MvcContrib.Mvc3-ci.3.0.90.0\lib\MvcContrib.dll</HintPath>
     </Reference>
-    <Reference Include="Rosier.Akismet.Net">
-      <HintPath>..\..\packages\Rosier.Akismet.Net-1.0.0.0\Rosier.Akismet.Net.dll</HintPath>
+    <Reference Include="Rosier.Akismet.Net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rosier.Akismet.Net.1.1.0\lib\portable40-net45+sl5+win8+wp8\Rosier.Akismet.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.18\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.18.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.18\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
