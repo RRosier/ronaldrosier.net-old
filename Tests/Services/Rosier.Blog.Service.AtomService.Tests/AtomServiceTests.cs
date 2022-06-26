@@ -8,7 +8,6 @@ using Rosier.Blog.Web;
 using Rosier.Blog.Model;
 using System.Collections.ObjectModel;
 using Rosier.Blog.Services;
-using System.ServiceModel.Syndication;
 using System.IO;
 
 namespace Rosier.Blog.Service.AtomService.Tests

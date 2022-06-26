@@ -53,7 +53,7 @@ namespace Rosier.Blog.Web.Tests.Controllers
 
             Assert.IsNotNull(result, "Expected a ViewResult");
             Assert.AreEqual(expectedViewName, result.ViewName, "Expected viewname was '{0}' but returned '{1}'", expectedViewName, result.ViewName);
-            Assert.AreEqual(list,result.Model);
+            Assert.AreEqual(list, result.Model);
             Assert.AreEqual(expectedTitle, result.ViewBag.Title);
         }
     }
